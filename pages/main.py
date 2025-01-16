@@ -207,21 +207,18 @@ def show_game():
     with btn_col2:
         if st.button("정답 확인하기 ✨"):
             if user_answer.strip() == current_stage['answer'].strip():
-                play_sound("correct")  # 먼저 효과음 재생
-                time.sleep(0.5)  # 효과음을 위한 대기
-                st.balloons()  # 그 다음 풍선
+                play_sound("correct")
+                time.sleep(0.5)
                 st.markdown(f"<p class='success-text'>🎉 정답이에요! {current_stage['explanation']}</p>", unsafe_allow_html=True)
+                st.balloons()
                 st.session_state.points += current_stage['points']
-                time.sleep(2.0)  # 풍선 효과를 위한 대기
-                
-                # 마지막에 다음 단계로 이동
+                time.sleep(2.0)
                 if st.session_state.current_stage < len(stages['stages']):
                     st.session_state.current_stage += 1
                     st.session_state.user_answer = ""
-                    st.experimental_rerun()
+                    st.rerun()
             else:
                 play_sound("wrong")
-                time.sleep(0.5)
                 st.error("앗! 조금 아쉬워요. 다시 한번 도전해보세요! 💪")
 
     # 사이드바에 진행 상황 표시
@@ -262,7 +259,7 @@ def main():
                     time.sleep(1.2)  # 1.2초로 변경
             
             st.session_state.game_started = True
-            st.experimental_rerun()
+            st.rerun()
 
 if __name__ == "__main__":
     main() 
