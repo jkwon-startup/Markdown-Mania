@@ -1,0 +1,24 @@
+/* 전체 페이지 스타일 */
+.stApp {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 제목 스타일 */
+.main-title {
+    color: #1f77b4;
+    text-align: center;
+}
+
+/* 버튼 스타일 */
+.stButton button {
+    width: 100%;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+/* 텍스트 영역 스타일 */
+.stTextArea textarea {
+    font-family: monospace;
+    min-height: 100px;
+} 
